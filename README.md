@@ -1,0 +1,2 @@
+# HintView
+Easy hint view.
