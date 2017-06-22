@@ -17,16 +17,21 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.hint(success: nil)
-        self.view.hint(error: nil)
-        self.view.hint(info: nil)
-//        DispatchQueue.global().async {
+//        self.view.hint(success: "Success, This is a text hint. This is a text hint.")
+//        self.view.hint(error: "Error")
+//        self.view.hint(info: "Info")
+//        self.view.hint(text: "Text hint.")
+//        self.view.hint(text: "This is a text hint.")
+//        self.view.hint(text: "This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint. This is a text hint.")
+        let hint = self.view.hint(loading: "Loading ...")
+        DispatchQueue.global().async {
+            Thread.sleep(forTimeInterval: 3)
+            DispatchQueue.main.async {
+                hint.update(result: true, text: "Success")
+            }
 //            for _ in 0 ..< 3 {
-//                Thread.sleep(forTimeInterval: 2)
-//                DispatchQueue.main.async {
-//                }
 //            }
-//        }
+        }
     }
 
     override func didReceiveMemoryWarning() {

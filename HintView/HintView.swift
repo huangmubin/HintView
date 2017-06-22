@@ -217,7 +217,7 @@ extension HintView {
         // MARK: Data
         
         /** 存在时间 */
-        var duration_time: TimeInterval = 3
+        var duration_time: TimeInterval = 10
         /** 消失时间 */
         var dismiss_time: TimeInterval = 0
         
@@ -244,7 +244,13 @@ extension HintView {
         // MARK: Sub View to Override
         
         /** Deploy at init */
-        func deploy_at_init() { }
+        func deploy_at_init() {
+            self.backgroundColor = UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 0.9)
+            layer.cornerRadius = 10
+            layer.shadowRadius = 1
+            layer.shadowOpacity = 1
+            layer.shadowOffset = CGSize.zero
+        }
         /** Update Size */
         func update_size() {
             //self.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
