@@ -2,8 +2,13 @@
 //  AppDelegate.swift
 //  HintViewDemo
 //
+<<<<<<< HEAD
 //  Created by 黄穆斌 on 2017/6/20.
 //  Copyright © 2017年 myron. All rights reserved.
+=======
+//  Created by Myron on 2017/6/21.
+//  Copyright © 2017年 Myron. All rights reserved.
+>>>>>>> 78cd956bcaa630e047dfc9ac3251ee2393f99a2d
 //
 
 import UIKit

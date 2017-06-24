@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "9C429FFB1EF947690031E65C"
+=======
+               BlueprintIdentifier = "9C6F207E1EFA1E580096BD72"
+>>>>>>> 78cd956bcaa630e047dfc9ac3251ee2393f99a2d
                BuildableName = "HintViewDemo.app"
                BlueprintName = "HintViewDemo"
                ReferencedContainer = "container:HintViewDemo.xcodeproj">
@@ -32,7 +36,11 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "9C429FFB1EF947690031E65C"
+=======
+            BlueprintIdentifier = "9C6F207E1EFA1E580096BD72"
+>>>>>>> 78cd956bcaa630e047dfc9ac3251ee2393f99a2d
             BuildableName = "HintViewDemo.app"
             BlueprintName = "HintViewDemo"
             ReferencedContainer = "container:HintViewDemo.xcodeproj">
@@ -55,7 +63,11 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "9C429FFB1EF947690031E65C"
+=======
+            BlueprintIdentifier = "9C6F207E1EFA1E580096BD72"
+>>>>>>> 78cd956bcaa630e047dfc9ac3251ee2393f99a2d
             BuildableName = "HintViewDemo.app"
             BlueprintName = "HintViewDemo"
             ReferencedContainer = "container:HintViewDemo.xcodeproj">
@@ -74,7 +86,11 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "9C429FFB1EF947690031E65C"
+=======
+            BlueprintIdentifier = "9C6F207E1EFA1E580096BD72"
+>>>>>>> 78cd956bcaa630e047dfc9ac3251ee2393f99a2d
             BuildableName = "HintViewDemo.app"
             BlueprintName = "HintViewDemo"
             ReferencedContainer = "container:HintViewDemo.xcodeproj">
