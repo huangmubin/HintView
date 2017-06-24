@@ -11,6 +11,7 @@ import UIKit
 // MARK: - Hint View
 
 /**
+ Hint View Kit.
  */
 class HintView: UIView {
     
@@ -28,10 +29,12 @@ class HintView: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        print("Dismiss")
+        print("Hint View \(self) is deinit. Units is \(units.count);")
     }
     
+    /** Deploy action */
     private func deploy() {
+        print("Hint View \(self) is init!")
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         NotificationCenter.default.addObserver(
             self,
@@ -43,6 +46,7 @@ class HintView: UIView {
     
     // MARK: Orientation
     
+    /** Orientaion notification action. */
     func orientation() {
         DispatchQueue.main.async { [weak self] in
             if let view = self?.superview {
@@ -54,7 +58,7 @@ class HintView: UIView {
         }
     }
     
-    // MARK: - Data
+    // MARK: - Datas
     
     /** Units */
     var units: [HintUnit] = []
@@ -73,10 +77,8 @@ class HintView: UIView {
         )
         timer?.setEventHandler(handler: { [weak self] in
             if self?.units.isEmpty == true {
-                UIView.animate(
-                    withDuration: 0.25,
-                    animations: {
-                        self?.alpha = 0
+                UIView.animate(withDuration: 0.25, animations: {
+                    self?.alpha = 0
                 }, completion: { _ in
                     self?.removeFromSuperview()
                 })
@@ -102,62 +104,77 @@ class HintView: UIView {
     
 }
 
-// MARK: - Actions
+// MARK: - Class Action - Display Unit
 
 extension HintView {
     
-    /** Display action */
-    class func display(to: UIView, unit: HintUnit) {
-        for subview in to.subviews {
-            if let hint = subview as? HintView {
-                hint.display(unit: unit)
+    /** Display the unit to view. */
+    class func display(unit: HintUnit, to view: UIView) {
+        // Already Has
+        for subView in view.subviews {
+            if let hint = subView as? HintView {
+                hint.add(unit: unit)
                 return
             }
         }
         
+        // Create new hint view
         let hint = HintView()
-        hint.frame = to.bounds
+        hint.frame = view.bounds
         hint.alpha = 0
-        to.addSubview(hint)
-        UIView.animate(
-            withDuration: 0.25,
-            animations: {
+        view.addSubview(hint)
+        UIView.animate(withDuration: 0.25, animations: {
                 hint.alpha = 1
         }, completion: { _ in
-            hint.display(unit: unit)
+            hint.add(unit: unit)
             hint.run_timer()
         })
     }
     
+    /** Get the hint view */
+    class func hint_view(in view: UIView) -> HintView? {
+        for subView in view.subviews {
+            if let hint = subView as? HintView {
+                return hint
+            }
+        }
+        return nil
+    }
     
-    /** display */
-    func display(unit: HintUnit) {
-        unit.update_dismiss_time()
-        unit.update_size()
+}
+
+// MAKR: - Actions - Display and Dismiss
+
+extension HintView {
+    
+    /** Add unit to hint view */
+    func add(unit: HintUnit) {
+        // Deploy Unit
+        unit.update_times()
+        unit.init_update_bounds()
         unit.center = CGPoint(
             x: bounds.width / 2,
             y: new_center_y(height: unit.bounds.height)
         )
         
-        //unit.backgroundColor = UIColor.red
+        // Show unit
         units.append(unit)
         unit.alpha = 0
         addSubview(unit)
         UIView.animate(withDuration: 0.25, animations: {
             unit.alpha = 1
         }, completion: { _ in
-            unit.start()
+            unit.init_start_animation()
         })
         
-        update_units_center(bounds: self.bounds)
+        // Update Layout
+        self.update_units_center(bounds: self.bounds)
     }
     
-    /** Dismiss hint unit to hint view. */
+    /** Dismiss and remove unit. */
     func dismiss(unit: HintUnit) {
-        UIView.animate(
-            withDuration: 0.25,
-            animations: {
-                unit.alpha = 0
+        UIView.animate(withDuration: 0.25, animations: {
+            unit.alpha = 0
         }, completion: { _ in
             unit.removeFromSuperview()
             self.update_units_center(bounds: self.bounds)
@@ -170,7 +187,7 @@ extension HintView {
 
 extension HintView {
     
-    /** 更新 Units 的位置 */
+    /** Update total units's center. */
     func update_units_center(bounds: CGRect) {
         var height: CGFloat = 0
         for unit in self.units {
@@ -192,7 +209,7 @@ extension HintView {
         }
     }
     
-    /** 获取最新加入的 unit 的 center y */
+    /** Count the new center y in last. */
     func new_center_y(height: CGFloat) -> CGFloat {
         if let last = self.units.last {
             return last.frame.maxY + 10 + height / 2
@@ -201,70 +218,5 @@ extension HintView {
             return self.bounds.height / 2
         }
     }
-    
-}
-
-
-// MARK: - Hint View Unit
-
-extension HintView {
-    
-    /**
-     Hint Info Unit.
-     */
-    class HintUnit: UIView {
-        
-        // MARK: Data
-        
-        /** 存在时间 */
-        var duration_time: TimeInterval = 10
-        /** 消失时间 */
-        var dismiss_time: TimeInterval = 0
-        
-        /** update dismiss time */
-        func update_dismiss_time() {
-            dismiss_time = Date().timeIntervalSince1970 + duration_time
-        }
-        
-        /** id */
-        var identifier: String?
-        
-        // MARK: Init
-        
-        init() {
-            super.init(frame: CGRect.zero)
-            deploy_at_init()
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-            deploy_at_init()
-        }
-        
-        // MARK: Sub View to Override
-        
-        /** Deploy at init */
-        func deploy_at_init() {
-            self.backgroundColor = UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 0.9)
-            layer.cornerRadius = 10
-            layer.shadowRadius = 1
-            layer.shadowOpacity = 1
-            layer.shadowOffset = CGSize.zero
-        }
-        /** Update Size */
-        func update_size() {
-            //self.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
-        }
-        /** Update Data */
-        func update(data: Any) { }
-        
-        func start() { }
-        
-        deinit {
-            print("Hint Unit \(self) is deinit.")
-        }
-        
-    }
-    
     
 }

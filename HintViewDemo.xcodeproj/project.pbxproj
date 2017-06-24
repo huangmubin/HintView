@@ -16,6 +16,7 @@
 		9C6F209B1EFA4EB60096BD72 /* HintView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F209A1EFA4EB60096BD72 /* HintView_extension.swift */; };
 		9C6F209E1EFA89540096BD72 /* HintView_images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F209D1EFA89540096BD72 /* HintView_images.swift */; };
 		9C6F20A01EFA8A7C0096BD72 /* HintView_default_units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F209F1EFA8A7C0096BD72 /* HintView_default_units.swift */; };
+		9C7A4A3F1EFCF9C9007B94D6 /* HintView_HintUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7A4A3E1EFCF9C9007B94D6 /* HintView_HintUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		9C6F209A1EFA4EB60096BD72 /* HintView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView_extension.swift; sourceTree = "<group>"; };
 		9C6F209D1EFA89540096BD72 /* HintView_images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView_images.swift; sourceTree = "<group>"; };
 		9C6F209F1EFA8A7C0096BD72 /* HintView_default_units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView_default_units.swift; sourceTree = "<group>"; };
+		9C7A4A3E1EFCF9C9007B94D6 /* HintView_HintUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView_HintUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				9C6F20961EFA1EBE0096BD72 /* HintView.swift */,
+				9C7A4A3E1EFCF9C9007B94D6 /* HintView_HintUnit.swift */,
 				9C6F209A1EFA4EB60096BD72 /* HintView_extension.swift */,
 				9C6F209D1EFA89540096BD72 /* HintView_images.swift */,
 				9C6F209F1EFA8A7C0096BD72 /* HintView_default_units.swift */,
@@ -173,6 +176,7 @@
 				9C6F20831EFA1E580096BD72 /* AppDelegate.swift in Sources */,
 				9C6F209E1EFA89540096BD72 /* HintView_images.swift in Sources */,
 				9C6F20A01EFA8A7C0096BD72 /* HintView_default_units.swift in Sources */,
+				9C7A4A3F1EFCF9C9007B94D6 /* HintView_HintUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
