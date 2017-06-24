@@ -73,10 +73,10 @@ extension HintView {
         func init_start_animation() { }
         
         /** Cell when user update the status datas */
-        func result_deploy() -> CGRect { return bounds }
+        func result_deploy(type: Any) -> CGRect { return bounds }
         
         /** Cell when to update the frame */
-        func result_update_bounds(type: Any) { }
+        func result_update_bounds() { }
         
         /** Cell when to show. */
         func result_start_animation() { }

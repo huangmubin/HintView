@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3648CB1EFE41A600D22963 /* PopupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3648CA1EFE41A600D22963 /* PopupsView.swift */; };
+		9C3648CD1EFE429200D22963 /* PopupsView_Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3648CC1EFE429200D22963 /* PopupsView_Unit.swift */; };
+		9C3648CF1EFE6BC000D22963 /* PopupsView_Default_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3648CE1EFE6BC000D22963 /* PopupsView_Default_Image.swift */; };
+		9C3648D11EFE6C2900D22963 /* PopupsView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3648D01EFE6C2900D22963 /* PopupsView_extension.swift */; };
+		9C3648D31EFE6FA900D22963 /* PopupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3648D21EFE6FA900D22963 /* PopupsTableViewController.swift */; };
 		9C6F20831EFA1E580096BD72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F20821EFA1E580096BD72 /* AppDelegate.swift */; };
 		9C6F20851EFA1E580096BD72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6F20841EFA1E580096BD72 /* ViewController.swift */; };
 		9C6F20881EFA1E580096BD72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6F20861EFA1E580096BD72 /* Main.storyboard */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C3648CA1EFE41A600D22963 /* PopupsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView.swift; sourceTree = "<group>"; };
+		9C3648CC1EFE429200D22963 /* PopupsView_Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_Unit.swift; sourceTree = "<group>"; };
+		9C3648CE1EFE6BC000D22963 /* PopupsView_Default_Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_Default_Image.swift; sourceTree = "<group>"; };
+		9C3648D01EFE6C2900D22963 /* PopupsView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_extension.swift; sourceTree = "<group>"; };
+		9C3648D21EFE6FA900D22963 /* PopupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsTableViewController.swift; sourceTree = "<group>"; };
 		9C6F207F1EFA1E580096BD72 /* HintViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HintViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6F20821EFA1E580096BD72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C6F20841EFA1E580096BD72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,10 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C3648C91EFE417C00D22963 /* PoPups */ = {
+			isa = PBXGroup;
+			children = (
+				9C3648CA1EFE41A600D22963 /* PopupsView.swift */,
+				9C3648CC1EFE429200D22963 /* PopupsView_Unit.swift */,
+				9C3648CE1EFE6BC000D22963 /* PopupsView_Default_Image.swift */,
+				9C3648D01EFE6C2900D22963 /* PopupsView_extension.swift */,
+			);
+			path = PoPups;
+			sourceTree = "<group>";
+		};
 		9C6F20761EFA1E580096BD72 = {
 			isa = PBXGroup;
 			children = (
 				9C6F20811EFA1E580096BD72 /* HintViewDemo */,
+				9C3648C91EFE417C00D22963 /* PoPups */,
 				9C6F20801EFA1E580096BD72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				9C6F20841EFA1E580096BD72 /* ViewController.swift */,
+				9C3648D21EFE6FA900D22963 /* PopupsTableViewController.swift */,
 				9C6F20861EFA1E580096BD72 /* Main.storyboard */,
 				9C6F20981EFA1EC80096BD72 /* README.md */,
 				9C6F20941EFA1E970096BD72 /* Project Resources */,
@@ -173,8 +196,13 @@
 				9C6F20851EFA1E580096BD72 /* ViewController.swift in Sources */,
 				9C6F209B1EFA4EB60096BD72 /* HintView_extension.swift in Sources */,
 				9C6F20971EFA1EBE0096BD72 /* HintView.swift in Sources */,
+				9C3648CF1EFE6BC000D22963 /* PopupsView_Default_Image.swift in Sources */,
+				9C3648D31EFE6FA900D22963 /* PopupsTableViewController.swift in Sources */,
+				9C3648D11EFE6C2900D22963 /* PopupsView_extension.swift in Sources */,
 				9C6F20831EFA1E580096BD72 /* AppDelegate.swift in Sources */,
+				9C3648CD1EFE429200D22963 /* PopupsView_Unit.swift in Sources */,
 				9C6F209E1EFA89540096BD72 /* HintView_images.swift in Sources */,
+				9C3648CB1EFE41A600D22963 /* PopupsView.swift in Sources */,
 				9C6F20A01EFA8A7C0096BD72 /* HintView_default_units.swift in Sources */,
 				9C7A4A3F1EFCF9C9007B94D6 /* HintView_HintUnit.swift in Sources */,
 			);

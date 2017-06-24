@@ -129,7 +129,7 @@ extension HintView {
 
 extension HintView {
     
-    class Teletext: HintView.HintUnit {
+    class Unit_Teletext: HintView.HintUnit {
         
         /** Content Image View */
         let image_view: UIImageView = UIImageView()
@@ -221,7 +221,7 @@ extension HintView {
 
 extension HintView {
     
-    class Unit_Loading: HintView.Teletext {
+    class Unit_Loading: HintView.Unit_Teletext {
         
         let activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         
@@ -257,9 +257,12 @@ extension HintView {
             activity.startAnimating()
         }
         
-        override func result_deploy() -> CGRect {
+        override func result_deploy(type: Any) -> CGRect {
+            dismiss_time = Date().timeIntervalSince1970 + 3
+            
             activity.stopAnimating()
             image_view.isHidden = false
+            
             if (type as? Bool) == true {
                 image_view.image = success_images.first
                 image_view.animationImages = success_images
@@ -270,20 +273,25 @@ extension HintView {
                 image_view.animationImages = error_images
                 label.text = error_text
             }
+            
+            // Label Size
+            label.frame = CGRect(x: 0, y: 0, width: label_max_width, height: 1000000)
+            label.sizeToFit()
+            label.sizeToFit()
+            
+            // self bount
+            let width = max(label.bounds.width, image_view_size.width)
+            let height = label.bounds.height + image_view_size.height + 10
+            
+            return CGRect(
+                x: 0, y: 0,
+                width: width > 62 ? width + 40 : 102,
+                height: height > 62 ? height + 40 : 102
+            )
         }
         
-        override func result_update_bounds(type: Any) {
-            activity.stopAnimating()
-            image_view.isHidden = false
-            if (type as? Bool) == true {
-                image_view.image = success_images.first
-                image_view.animationImages = success_images
-                activity
-            }
-            else {
-                image_view.image = error_images.first
-                image_view.animationImages = error_images
-            }
+        override func result_update_bounds() {
+            init_update_bounds()
         }
         
         override func result_start_animation() {
@@ -294,71 +302,3 @@ extension HintView {
     }
     
 }
-
-/*
-// MARK: - HintUnit - Loading
-
-class HintUnit_Loading: HintUnit_Image_Text {
-    
-    let activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-    
-    var success_images: [UIImage] = []
-    var error_images  : [UIImage] = []
-    
-    override func deploy_at_init() {
-        self.duration_time = 100000000
-        super.deploy_at_init()
-        addSubview(activity)
-        image_view.isHidden = true
-        activity.hidesWhenStopped = true
-        activity.startAnimating()
-    }
-    
-    override func update_size() {
-        super.update_size()
-        activity.center = image_view.center
-    }
-    
-    override func update(data: Any) {
-        super.update(data: data)
-    }
-    
-    override func start() {
-        activity.startAnimating()
-    }
-    
-    func update(result: Bool?, text: String?) {
-        if let result = result {
-            self.dismiss_time = Date().timeIntervalSince1970 + 3
-            self.activity.stopAnimating()
-            self.label.text = text
-            self.image_view.isHidden = false
-            if result {
-                if self.success_images.count > 1 {
-                    self.image_view.animationImages = self.success_images
-                    self.image_view.startAnimating()
-                }
-                else {
-                    self.image_view.image = self.success_images.first
-                }
-            }
-            else {
-                if self.error_images.count > 1 {
-                    self.image_view.animationImages = self.error_images
-                    self.image_view.startAnimating()
-                }
-                else {
-                    self.image_view.image = self.error_images.first
-                }
-            }
-            let center = self.center
-            update_size()
-            self.center = center
-        }
-        else {
-            self.duration_time = 0
-        }
-    }
-    
-}
-*/

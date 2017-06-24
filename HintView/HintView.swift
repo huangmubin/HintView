@@ -80,6 +80,7 @@ class HintView: UIView {
                 UIView.animate(withDuration: 0.25, animations: {
                     self?.alpha = 0
                 }, completion: { _ in
+                    self?.superview?.isUserInteractionEnabled = true
                     self?.removeFromSuperview()
                 })
             }
@@ -119,6 +120,7 @@ extension HintView {
         }
         
         // Create new hint view
+        view.isUserInteractionEnabled = false
         let hint = HintView()
         hint.frame = view.bounds
         hint.alpha = 0
@@ -179,6 +181,26 @@ extension HintView {
             unit.removeFromSuperview()
             self.update_units_center(bounds: self.bounds)
         })
+    }
+    
+}
+
+// MARK: - Units Action
+
+extension HintView {
+    
+    func unit(identifier: String?) -> HintUnit? {
+        for unit in units {
+            if unit.identifier == identifier {
+                return unit
+            }
+        }
+        return nil
+    }
+    
+    func unit(unit: HintUnit, to_result: Any) {
+        let rect = unit.result_deploy(type: to_result)
+        
     }
     
 }
