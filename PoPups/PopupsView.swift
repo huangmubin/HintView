@@ -34,7 +34,7 @@ class PopupsView: UIView {
     /** Deploy action */
     private func deploy() {
         print("Popos View is init;")
-        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        //self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(orientation),
@@ -109,6 +109,10 @@ class PopupsView: UIView {
         unit.alpha = 0
         addSubview(unit)
         UIView.animate(withDuration: 0.25, animations: {
+            if unit is CenterUnit {
+                self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+                self.superview?.isUserInteractionEnabled = false
+            }
             unit.alpha = 1
         }, completion: { _ in
             self.layout_units_center(bounds: self.bounds)
@@ -123,6 +127,17 @@ class PopupsView: UIView {
             unit.removeFromSuperview()
             self.layout_units_center(bounds: self.bounds)
         })
+        if unit is CenterUnit {
+            for unit in self.units {
+                if unit is CenterUnit {
+                    return
+                }
+            }
+            UIView.animate(withDuration: 0.25, animations: {
+                self.backgroundColor = UIColor.clear
+                self.superview?.isUserInteractionEnabled = true
+            })
+        }
     }
     
     // MARK: - Layout
@@ -137,11 +152,11 @@ class PopupsView: UIView {
         for unit in units {
             if let center = unit as? PopupsView.CenterUnit {
                 center_units.append(center)
-                center_height += center.bounds.height
+                center_height += center.content_size().height
             }
             else if let bottom = unit as? PopupsView.BottomUnit {
                 bottom_units.append(bottom)
-                bottom_height += bottom.bounds.height
+                bottom_height += bottom.content_size().height
             }
         }
         
@@ -152,24 +167,26 @@ class PopupsView: UIView {
         
         var center_y = (bounds.height - center_height) / 2
         for unit in center_units {
+            let height = unit.content_size().height
             UIView.animate(withDuration: 0.25, animations: {
                 unit.center = CGPoint(
                     x: center_x,
-                    y: center_y + unit.bounds.height / 2
+                    y: center_y + height / 2
                 )
             })
-            center_y += unit.bounds.height + 10
+            center_y += height + 10
         }
         
         center_y = (bounds.height - bottom_height)
         for unit in bottom_units {
+            let height = unit.content_size().height
             UIView.animate(withDuration: 0.25, animations: {
                 unit.center = CGPoint(
                     x: center_x,
-                    y: center_y + unit.bounds.height / 2
+                    y: center_y + height / 2
                 )
             })
-            center_y += unit.bounds.height + 10
+            center_y += height + 10
         }
     }
     
@@ -213,7 +230,6 @@ extension PopupsView {
         }
         
         // Create new popups view
-        view.isUserInteractionEnabled = false
         let popups = PopupsView()
         popups.frame = view.bounds
         popups.alpha = 0

@@ -38,6 +38,12 @@ extension PopupsView {
             layer.shadowRadius = 1
             layer.shadowOpacity = 1
             layer.shadowOffset = CGSize.zero
+            
+            content_text.textColor = UIColor.white
+            content_text.numberOfLines = 0
+            
+            addSubview(content_text)
+            addSubview(content_view)
         }
         
         // MARK: - Data
@@ -242,18 +248,7 @@ extension PopupsView {
             )
             
             // View
-            if content_view_hidden {
-                content_view.isHidden = true
-            }
-            else {
-                content_view.isHidden = false
-                content_view.frame = CGRect(
-                    x: (bounds.width - content_view_size.width) / 2,
-                    y: 20,
-                    width: content_view_size.width,
-                    height: content_view_size.height
-                )
-            }
+            content_view.isHidden = content_view_hidden
             
             // Text
             if content_text_hidden {
@@ -263,9 +258,37 @@ extension PopupsView {
                 content_text.isHidden = false
                 content_text.text = label_text
                 content_text_size_to_fit()
-                content_text.frame.origin = CGPoint(
+            }
+            
+            // Frame
+            if content_view_hidden && !content_text_hidden {
+                content_text.frame = CGRect(
                     x: (bounds.width - content_text.bounds.width) / 2,
-                    y: bounds.height - content_text.bounds.height - 20
+                    y: (bounds.height - content_text.bounds.height) / 2,
+                    width: content_text.bounds.width,
+                    height: content_text.bounds.height
+                )
+            }
+            else if !content_view_hidden && content_text_hidden {
+                content_view.frame = CGRect(
+                    x: (bounds.width - content_view_size.width) / 2,
+                    y: (bounds.height - content_view_size.height) / 2,
+                    width: content_view_size.width,
+                    height: content_view_size.height
+                )
+            }
+            else if !content_view_hidden && !content_text_hidden {
+                content_view.frame = CGRect(
+                    x: (bounds.width - content_view_size.width) / 2,
+                    y: (bounds.height - content_view_size.height - content_text.bounds.height - 10) / 2,
+                    width: content_view_size.width,
+                    height: content_view_size.height
+                )
+                content_text.frame = CGRect(
+                    x: (bounds.width - content_text.bounds.width) / 2,
+                    y: content_view.frame.maxY + 10,
+                    width: content_text.bounds.width,
+                    height: content_text.bounds.height
                 )
             }
         }
@@ -304,8 +327,8 @@ extension PopupsView {
             }
             
             // Edge
-            size.width = size.width > 110 ? size.width + 40 : 130
-            size.height = size.height > 30 ? size.height + 40 : 70
+            size.width = size.width > 110 ? size.width + 30 : 140
+            size.height = size.height > 30 ? size.height + 24 : 54
             
             return size
         }
@@ -321,18 +344,7 @@ extension PopupsView {
             )
             
             // View
-            if content_view_hidden {
-                content_view.isHidden = true
-            }
-            else {
-                content_view.isHidden = false
-                content_view.frame = CGRect(
-                    x: 20,
-                    y: (bounds.height - content_view_size.height) / 2,
-                    width: content_view_size.width,
-                    height: content_view_size.height
-                )
-            }
+            content_view.isHidden = content_view_hidden
             
             // Text
             if content_text_hidden {
@@ -342,9 +354,37 @@ extension PopupsView {
                 content_text.isHidden = false
                 content_text.text = label_text
                 content_text_size_to_fit()
-                content_text.frame.origin = CGPoint(
-                    x: bounds.width - content_text.bounds.width - 20,
-                    y: (bounds.height - content_text.bounds.height) / 2
+            }
+            
+            // Frame
+            if content_view_hidden && !content_text_hidden {
+                content_text.frame = CGRect(
+                    x: (bounds.width - content_text.bounds.width) / 2,
+                    y: (bounds.height - content_text.bounds.height) / 2,
+                    width: content_text.bounds.width,
+                    height: content_text.bounds.height
+                )
+            }
+            else if !content_view_hidden && content_text_hidden {
+                content_view.frame = CGRect(
+                    x: (bounds.width - content_view_size.width) / 2,
+                    y: (bounds.height - content_view_size.height) / 2,
+                    width: content_view_size.width,
+                    height: content_view_size.height
+                )
+            }
+            else if !content_view_hidden && !content_text_hidden {
+                content_view.frame = CGRect(
+                    x: (bounds.width - content_view_size.width - content_text.bounds.width - 10) / 2,
+                    y: (bounds.height - content_view_size.height) / 2,
+                    width: content_view_size.width,
+                    height: content_view_size.height
+                )
+                content_text.frame = CGRect(
+                    x: content_view.frame.maxX + 10,
+                    y: (bounds.height - content_text.bounds.height) / 2,
+                    width: content_text.bounds.width,
+                    height: content_text.bounds.height
                 )
             }
         }
