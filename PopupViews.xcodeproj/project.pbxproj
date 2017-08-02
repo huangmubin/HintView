@@ -13,6 +13,12 @@
 		9C55EF841F00BC38005F0E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C55EF821F00BC38005F0E88 /* Main.storyboard */; };
 		9C55EF861F00BC38005F0E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C55EF851F00BC38005F0E88 /* Assets.xcassets */; };
 		9C55EF891F00BC38005F0E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C55EF871F00BC38005F0E88 /* LaunchScreen.storyboard */; };
+		9C87F0D41F01F15D00F957F3 /* PopupsView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0D31F01F15D00F957F3 /* PopupsView_extension.swift */; };
+		9C87F0D91F01FA8F00F957F3 /* PopusView_image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0D81F01FA8F00F957F3 /* PopusView_image.swift */; };
+		9C87F0DB1F0233EE00F957F3 /* PopupsView_Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0DA1F0233EE00F957F3 /* PopupsView_Image.swift */; };
+		9C87F0DD1F02341100F957F3 /* PopupsView_Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0DC1F02341100F957F3 /* PopupsView_Loading.swift */; };
+		9C87F0DF1F023FA500F957F3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0DE1F023FA500F957F3 /* TableViewController.swift */; };
+		9C87F0E11F02465400F957F3 /* PopupsView_Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87F0E01F02465400F957F3 /* PopupsView_Progress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		9C55EF851F00BC38005F0E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C55EF881F00BC38005F0E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C55EF8A1F00BC38005F0E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C87F0D31F01F15D00F957F3 /* PopupsView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_extension.swift; sourceTree = "<group>"; };
+		9C87F0D81F01FA8F00F957F3 /* PopusView_image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopusView_image.swift; sourceTree = "<group>"; };
+		9C87F0DA1F0233EE00F957F3 /* PopupsView_Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_Image.swift; sourceTree = "<group>"; };
+		9C87F0DC1F02341100F957F3 /* PopupsView_Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_Loading.swift; sourceTree = "<group>"; };
+		9C87F0DE1F023FA500F957F3 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		9C87F0E01F02465400F957F3 /* PopupsView_Progress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupsView_Progress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,7 @@
 			children = (
 				9C55EF7E1F00BC38005F0E88 /* AppDelegate.swift */,
 				9C55EF801F00BC38005F0E88 /* ViewController.swift */,
+				9C87F0DE1F023FA500F957F3 /* TableViewController.swift */,
 				9C55EF821F00BC38005F0E88 /* Main.storyboard */,
 				9C55EF851F00BC38005F0E88 /* Assets.xcassets */,
 				9C55EF871F00BC38005F0E88 /* LaunchScreen.storyboard */,
@@ -79,6 +92,11 @@
 			isa = PBXGroup;
 			children = (
 				9C41BBE71F01096F00C0289C /* PopupsView.swift */,
+				9C87F0DA1F0233EE00F957F3 /* PopupsView_Image.swift */,
+				9C87F0DC1F02341100F957F3 /* PopupsView_Loading.swift */,
+				9C87F0E01F02465400F957F3 /* PopupsView_Progress.swift */,
+				9C87F0D31F01F15D00F957F3 /* PopupsView_extension.swift */,
+				9C87F0D81F01FA8F00F957F3 /* PopusView_image.swift */,
 			);
 			path = PoPups;
 			sourceTree = "<group>";
@@ -159,6 +177,12 @@
 				9C41BBE81F01096F00C0289C /* PopupsView.swift in Sources */,
 				9C55EF811F00BC38005F0E88 /* ViewController.swift in Sources */,
 				9C55EF7F1F00BC38005F0E88 /* AppDelegate.swift in Sources */,
+				9C87F0E11F02465400F957F3 /* PopupsView_Progress.swift in Sources */,
+				9C87F0DF1F023FA500F957F3 /* TableViewController.swift in Sources */,
+				9C87F0DD1F02341100F957F3 /* PopupsView_Loading.swift in Sources */,
+				9C87F0D91F01FA8F00F957F3 /* PopusView_image.swift in Sources */,
+				9C87F0D41F01F15D00F957F3 /* PopupsView_extension.swift in Sources */,
+				9C87F0DB1F0233EE00F957F3 /* PopupsView_Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +309,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9X2EVZ736U;
 				INFOPLIST_FILE = PopupViews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = myron.PopupViews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +323,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9X2EVZ736U;
 				INFOPLIST_FILE = PopupViews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = myron.PopupViews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
